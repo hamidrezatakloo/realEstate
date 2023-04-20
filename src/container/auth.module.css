@@ -1,4 +1,4 @@
-.signupPage {
+.authPage {
   text-align: center;
   background-color: #f9f9f9;
   height: 100vh;
@@ -6,11 +6,11 @@
   justify-content: center;
   align-items: center;
 }
-.signupPage h1 {
+.authPage h1 {
   font-size: 1.25rem;
   font-weight: 700;
 }
-.signupPage p {
+.authPage p {
   color: #62666d;
   margin-top: 20px;
   margin-bottom: 10px;
@@ -26,18 +26,18 @@
   text-align: right;
 }
 
-.signupForm {
+.authForm {
   padding: 20px;
   margin: 0 auto;
 }
 
-.signupForm label {
+.authForm label {
   text-align: right;
   display: block;
   margin-bottom: 10px;
 }
 
-.signupForm input {
+.authForm input {
   display: block;
   width: 100%;
   padding: 10px;
@@ -46,11 +46,11 @@
   border-radius: 5px;
 }
 
-.signupForm input:focus {
+.authForm input:focus {
   outline: 1px solid #0077ff;
 }
 
-.signupForm button {
+.authForm button {
   display: block;
   margin-top: 20px;
   padding: 15px 20px;
