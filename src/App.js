@@ -1,8 +1,14 @@
+import Login from "./container/Login";
+import Signup from "./container/Signup";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
