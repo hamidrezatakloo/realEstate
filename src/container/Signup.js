@@ -7,7 +7,8 @@ const Signup = () => {
   return (
     <div className={styles.signupPage}>
       <div className={styles.container}>
-        <h1>حساب کاربری بسازید</h1>
+        <h1>ثبت نام</h1>
+        <p>لطفا برای ثبت نام اطلاعات خود را وارد کنید</p>
         <form className={styles.signupForm}>
           <label>
             نام کاربری
