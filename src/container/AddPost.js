@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./form.module.css";
 const AddPost = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
@@ -11,10 +12,10 @@ const AddPost = () => {
     // Do something with the form data, e.g. submit to a server
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <label>
-          شماره موبایل:
+          شماره موبایل
           <input
             type="tel"
             value={phoneNumber}
@@ -22,7 +23,7 @@ const AddPost = () => {
           />
         </label>
         <label>
-          آدرس:
+          آدرس
           <input
             type="text"
             value={address}
@@ -30,13 +31,13 @@ const AddPost = () => {
           />
         </label>
         <label>
-          توضیح:
+          توضیح
           <textarea
             value={description}
             onChange={(event) => setDescription(event.target.value)}
           />
         </label>
-        <button type="submit">Submit</button>
+        <button type="submit">ثبت آگهی</button>
       </form>
     </div>
   );

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./auth.module.css";
+import styles from "./form.module.css";
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -23,7 +23,7 @@ const Signup = () => {
     <div className={styles.container}>
       <h1>ثبت نام</h1>
       <p>لطفا برای ثبت نام اطلاعات خود را وارد کنید</p>
-      <form className={styles.authForm} onSubmit={handleSignup}>
+      <form className={styles.form} onSubmit={handleSignup}>
         <label>
           نام کاربری
           <input
