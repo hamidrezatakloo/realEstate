@@ -37,6 +37,7 @@ const AddPost = () => {
           <label>
             توضیح
             <textarea
+              rows={8}
               value={description}
               onChange={(event) => setDescription(event.target.value)}
             />
