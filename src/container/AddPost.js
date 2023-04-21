@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LocationPicker from "../components/LocationPicker";
 import styles from "./form.module.css";
+import AddpostStyle from "./Addpost.module.css";
 const AddPost = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
@@ -13,7 +14,7 @@ const AddPost = () => {
     // Do something with the form data, e.g. submit to a server
   };
   return (
-    <div>
+    <div className={AddpostStyle.container}>
       <LocationPicker />
       <div className={styles.container}>
         <form onSubmit={handleSubmit} className={styles.form}>
