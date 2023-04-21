@@ -16,7 +16,7 @@ const AddPost = () => {
   return (
     <div className={AddpostStyle.container}>
       <LocationPicker />
-      <div className={styles.container}>
+      <div className={[styles.container, AddpostStyle.formContainer].join(" ")}>
         <form
           dir="rtl"
           onSubmit={handleSubmit}
