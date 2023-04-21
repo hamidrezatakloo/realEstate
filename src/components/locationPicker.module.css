@@ -1,0 +1,10 @@
+.container {
+  flex: 1;
+  box-shadow: 0 1px 6px 0 rgb(0 0 0 / 10%);
+}
+
+.guide {
+  color: #62666d;
+  padding: 20px;
+  background-color: #e0e2e6;
+}
