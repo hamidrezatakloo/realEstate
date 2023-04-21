@@ -17,18 +17,19 @@
   margin-bottom: 10px;
 }
 
-.authForm {
+.form {
   padding: 20px;
   margin: 0 auto;
 }
 
-.authForm label {
+.form label {
   text-align: right;
   display: block;
   margin-bottom: 10px;
 }
 
-.authForm input {
+.form input,
+textarea {
   display: block;
   width: 100%;
   padding: 10px;
@@ -37,11 +38,12 @@
   border-radius: 5px;
 }
 
-.authForm input:focus {
+.form input:focus,
+textarea:focus {
   outline: 1px solid #0077ff;
 }
 
-.authForm button {
+.form button {
   display: block;
   margin-top: 20px;
   padding: 15px 20px;
