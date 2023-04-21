@@ -17,7 +17,7 @@ const AddPost = () => {
     <div className={AddpostStyle.container}>
       <LocationPicker />
       <div className={styles.container}>
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <form dir="rtl" onSubmit={handleSubmit} className={styles.form}>
           <label>
             شماره موبایل
             <input
