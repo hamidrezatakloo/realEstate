@@ -19,3 +19,9 @@ body {
 .leaflet-container {
   height: 400px;
 }
+
+@media only screen and (max-width: 768px) {
+  .leaflet-container {
+    height: 200px;
+  }
+}
