@@ -17,7 +17,11 @@ const AddPost = () => {
     <div className={AddpostStyle.container}>
       <LocationPicker />
       <div className={styles.container}>
-        <form dir="rtl" onSubmit={handleSubmit} className={styles.form}>
+        <form
+          dir="rtl"
+          onSubmit={handleSubmit}
+          className={[styles.form, AddpostStyle.form].join(" ")}
+        >
           <label>
             شماره موبایل
             <input

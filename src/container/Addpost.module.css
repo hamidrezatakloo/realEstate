@@ -3,3 +3,14 @@
   width: 60%;
   gap: 20px;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.form textarea {
+  font-family: inherit;
+}
