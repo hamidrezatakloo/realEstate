@@ -1,21 +1,3 @@
-.authPage {
-  text-align: center;
-  background-color: #f9f9f9;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.authPage h1 {
-  font-size: 1.25rem;
-  font-weight: 700;
-}
-.authPage p {
-  color: #62666d;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
 .container {
   background: #ffffff;
   padding: 20px;
@@ -24,6 +6,15 @@
   min-width: 300px;
   box-shadow: 0 1px 6px 0 rgb(0 0 0 / 10%);
   text-align: right;
+}
+.container h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.container p {
+  color: #62666d;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .authForm {
