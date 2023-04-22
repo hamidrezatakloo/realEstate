@@ -1,19 +1,34 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import LocationPicker from "../components/LocationPicker";
 import styles from "./form.module.css";
 import AddpostStyle from "./Addpost.module.css";
 import LocationContext from "../contexts/LocationContext";
+import UserContext from "../contexts/UserContext";
 const AddPost = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState(null);
+  const { currentUser } = useContext(UserContext);
+  const UserId = currentUser.id;
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(
-      `Phone Number: ${phoneNumber}, Address: ${address}, Description: ${description}`
-    );
-    // Do something with the form data, e.g. submit to a server
+    fetch("http://localhost:4000/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        UserId,
+        phoneNumber,
+        address,
+        description,
+        location,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
   };
   return (
     <LocationContext.Provider value={{ location, setLocation }}>
