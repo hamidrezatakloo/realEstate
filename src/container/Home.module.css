@@ -1,0 +1,23 @@
+.container {
+  padding: 10px;
+}
+.postList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .postList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .postList {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

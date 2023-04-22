@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Post from "../components/Post";
+import styles from "./Home.module.css";
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,12 +29,12 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       {posts.length === 0 ? (
         <p>No posts found.</p>
       ) : (
         <>
-          <ul>
+          <ul className={styles.postList}>
             {posts.map((post) => (
               <li key={post.id}>
                 <Post post={post} />
