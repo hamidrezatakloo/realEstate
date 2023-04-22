@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Post from "../components/Post";
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,7 +35,9 @@ const Home = () => {
         <>
           <ul>
             {posts.map((post) => (
-              <li key={post.id}>{post.address}</li>
+              <li key={post.id}>
+                <Post post={post} />
+              </li>
             ))}
           </ul>
           <button onClick={handlePrevPage} disabled={currentPage === 1}>
