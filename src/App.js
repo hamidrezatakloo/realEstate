@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import UserContext from "./contexts/UserContext";
 import PrivateRoute from "./components/PrivateRoute";
+import Home from "./container/Home";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   return (
@@ -13,6 +14,7 @@ function App() {
       <UserContext.Provider value={{ currentUser, setCurrentUser }}>
         <div className={styles.container}>
           <Routes>
+            <Route path="/" element={<Home />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route
