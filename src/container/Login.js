@@ -1,10 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./form.module.css";
 import UserContext from "../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 function Login() {
-  const { setCurrentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -26,6 +28,11 @@ function Login() {
     setEmail("");
     setPassword("");
   }
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/addpost");
+    }
+  }, [currentUser]);
 
   return (
     <div className={styles.container}>
