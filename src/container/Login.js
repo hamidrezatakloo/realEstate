@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./form.module.css";
+import UserContext from "../contexts/UserContext";
 function Login() {
+  const { setCurrentUser } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,7 +18,8 @@ function Login() {
       body: JSON.stringify({ email, password }),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      // Update the currentUser state with the user data from the server response
+      .then((data) => setCurrentUser(data.user))
       .catch((error) => console.log(error));
 
     // reset form
