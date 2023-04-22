@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import styles from "./PostPage.module.css";
 function PostPage() {
   const { postId } = useParams();
   const [post, setPost] = useState(null);
@@ -16,9 +17,9 @@ function PostPage() {
   }
 
   return (
-    <div>
+    <div className={styles.post}>
       <img src="/sampleImage.jpg" />
-      <div>
+      <div className={styles.info}>
         <p>
           شماره تماس:<span>{post.phoneNumber}</span>
         </p>
