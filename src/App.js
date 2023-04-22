@@ -7,6 +7,7 @@ import { useState } from "react";
 import UserContext from "./contexts/UserContext";
 import PrivateRoute from "./components/PrivateRoute";
 import Home from "./container/Home";
+import PostPage from "./container/PostPage";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   return (
@@ -25,6 +26,7 @@ function App() {
                 </PrivateRoute>
               }
             ></Route>
+            <Route path="/posts/:postId" element={<PostPage />}></Route>
           </Routes>
         </div>
       </UserContext.Provider>
