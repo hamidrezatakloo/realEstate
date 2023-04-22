@@ -23,3 +23,9 @@
   transform: translateY(-2px);
   opacity: 0.8;
 }
+
+.link {
+  border: none;
+  text-decoration: none;
+  color: black;
+}
