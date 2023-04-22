@@ -1,8 +1,9 @@
+import styles from "./post.module.css";
 const Post = ({ post }) => {
   return (
-    <div>
-      <img src="./sampleImage.jpg" alt="default" />
-      <p>{post.address}</p>
+    <div className={styles.post}>
+      <img src="./sampleImage.jpg" alt="default" className={styles.postImage} />
+      <p className={styles.address}>{post.address}</p>
     </div>
   );
 };
