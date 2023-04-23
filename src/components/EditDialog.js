@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import LocationPicker from "./LocationPicker";
 import styles from "./EditDialog.module.css";
+import LocationContext from "../contexts/LocationContext";
 
 function EditDialog({ postInfo, isOpen, onClose, onSubmit }) {
   const [editedPostInfo, setEditedPostInfo] = useState(postInfo);
+  const { setLocation } = useContext(LocationContext);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setEditedPostInfo((prevPostInfo) => ({
@@ -11,6 +13,9 @@ function EditDialog({ postInfo, isOpen, onClose, onSubmit }) {
       [name]: value,
     }));
   };
+  useEffect(() => {
+    setLocation(postInfo.location);
+  }, []);
   return (
     <div
       className={styles.editDialogWrapper}
@@ -46,10 +51,7 @@ function EditDialog({ postInfo, isOpen, onClose, onSubmit }) {
         <div className={styles.location}>{isOpen && <LocationPicker />}</div>
 
         <div className={styles.buttons}>
-          <button
-            id={styles.confirm}
-            onClick={() => onSubmit(editedPostInfo, setEditedPostInfo)}
-          >
+          <button id={styles.confirm} onClick={() => onSubmit(editedPostInfo)}>
             تایید
           </button>
           <button id={styles.cancel} onClick={onClose}>
