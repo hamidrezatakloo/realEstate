@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import LocationContext from "../contexts/LocationContext";
 import LocationPicker from "./LocationPicker";
 
-function EditDialog({ postInfo }) {
+function EditDialog({ postInfo, isOpen, onClose }) {
   const [editedPostInfo, setEditedPostInfo] = useState(postInfo);
   const { setLocation } = useContext(LocationContext);
   setLocation(editedPostInfo.location);
@@ -15,7 +15,7 @@ function EditDialog({ postInfo }) {
   };
 
   return (
-    <div>
+    <div style={{ display: isOpen ? "block" : "none" }}>
       <div>
         <div>
           <h2>اطلاعات پست را اصلاح کنید</h2>
@@ -44,7 +44,7 @@ function EditDialog({ postInfo }) {
           />
           <LocationPicker />
           <button>تایید</button>
-          <button>انصراف</button>
+          <button onClick={onClose}>انصراف</button>
         </div>
       </div>
     </div>
