@@ -46,3 +46,39 @@
   margin: 10px 0;
   z-index: 2;
 }
+
+.post button {
+  font-family: inherit;
+  margin: 10px;
+}
+
+.removeButton {
+  background-color: #e53935;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-right: 8px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.removeButton:hover {
+  background-color: #c62828;
+}
+
+/* Edit Button */
+.editButton {
+  background-color: #43a047;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
+}
+.editButton:hover {
+  background-color: #2e7d32;
+}

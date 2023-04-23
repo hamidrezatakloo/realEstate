@@ -77,8 +77,15 @@ function PostPage() {
           <ShowLocation location={post.location} />
         </div>
       </div>
-      <button onClick={() => setIsEditDialogOpen(true)}>تغییر اطلاعات</button>
-      <button onClick={handleRemovePost}>حذف پست</button>
+      <button
+        onClick={() => setIsEditDialogOpen(true)}
+        className={styles.editButton}
+      >
+        تغییر اطلاعات
+      </button>
+      <button onClick={handleRemovePost} className={styles.removeButton}>
+        حذف پست
+      </button>
       <EditDialog
         isOpen={isEditDialogOpen}
         onClose={() => setIsEditDialogOpen(false)}
