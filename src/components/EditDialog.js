@@ -1,11 +1,9 @@
-import { useContext, useState } from "react";
-import LocationContext from "../contexts/LocationContext";
+import { useState } from "react";
 import LocationPicker from "./LocationPicker";
+import styles from "./EditDialog.module.css";
 
 function EditDialog({ postInfo, isOpen, onClose }) {
   const [editedPostInfo, setEditedPostInfo] = useState(postInfo);
-  const { setLocation } = useContext(LocationContext);
-  setLocation(editedPostInfo.location);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setEditedPostInfo((prevPostInfo) => ({
@@ -13,38 +11,45 @@ function EditDialog({ postInfo, isOpen, onClose }) {
       [name]: value,
     }));
   };
-
   return (
-    <div style={{ display: isOpen ? "block" : "none" }}>
-      <div>
-        <div>
-          <h2>اطلاعات پست را اصلاح کنید</h2>
-          <label htmlFor="phone">شماره تماس</label>
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            value={editedPostInfo.phoneNumber}
-            onChange={handleInputChange}
-          />
-          <label htmlFor="address">آدرس</label>
-          <input
-            type="text"
-            name="address"
-            id="address"
-            value={editedPostInfo.address}
-            onChange={handleInputChange}
-          />
-          <label htmlFor="description">توضیح</label>
-          <textarea
-            name="description"
-            id="description"
-            value={editedPostInfo.description}
-            onChange={handleInputChange}
-          />
-          <LocationPicker />
-          <button>تایید</button>
-          <button onClick={onClose}>انصراف</button>
+    <div
+      className={styles.editDialogWrapper}
+      style={{ display: isOpen ? "flex" : "none" }}
+    >
+      <div className={styles.editDialogContent}>
+        <h2>اطلاعات پست را اصلاح کنید</h2>
+        <label htmlFor="phone">شماره تماس</label>
+        <input
+          type="tel"
+          name="phone"
+          id="phone"
+          value={editedPostInfo.phoneNumber}
+          onChange={handleInputChange}
+        />
+        <label htmlFor="address">آدرس</label>
+        <input
+          type="text"
+          name="address"
+          id="address"
+          value={editedPostInfo.address}
+          onChange={handleInputChange}
+        />
+        <label htmlFor="description">توضیح</label>
+        <textarea
+          name="description"
+          id="description"
+          rows={6}
+          value={editedPostInfo.description}
+          onChange={handleInputChange}
+        />
+
+        <div className={styles.location}>{isOpen && <LocationPicker />}</div>
+
+        <div className={styles.buttons}>
+          <button id={styles.confirm}>تایید</button>
+          <button id={styles.cancel} onClick={onClose}>
+            انصراف
+          </button>
         </div>
       </div>
     </div>
