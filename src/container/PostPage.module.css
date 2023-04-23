@@ -44,4 +44,5 @@
   height: 200px;
   flex: 1;
   margin: 10px 0;
+  z-index: 2;
 }
