@@ -2,7 +2,7 @@ import { useState } from "react";
 import LocationPicker from "./LocationPicker";
 import styles from "./EditDialog.module.css";
 
-function EditDialog({ postInfo, isOpen, onClose }) {
+function EditDialog({ postInfo, isOpen, onClose, onSubmit }) {
   const [editedPostInfo, setEditedPostInfo] = useState(postInfo);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -46,7 +46,12 @@ function EditDialog({ postInfo, isOpen, onClose }) {
         <div className={styles.location}>{isOpen && <LocationPicker />}</div>
 
         <div className={styles.buttons}>
-          <button id={styles.confirm}>تایید</button>
+          <button
+            id={styles.confirm}
+            onClick={() => onSubmit(editedPostInfo, setEditedPostInfo)}
+          >
+            تایید
+          </button>
           <button id={styles.cancel} onClick={onClose}>
             انصراف
           </button>
