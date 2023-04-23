@@ -16,7 +16,7 @@ function EditDialog({ postInfo, isOpen, onClose, onSubmit }) {
       className={styles.editDialogWrapper}
       style={{ display: isOpen ? "flex" : "none" }}
     >
-      <div className={styles.editDialogContent}>
+      <div dir="rtl" className={styles.editDialogContent}>
         <h2>اطلاعات پست را اصلاح کنید</h2>
         <label htmlFor="phone">شماره تماس</label>
         <input
