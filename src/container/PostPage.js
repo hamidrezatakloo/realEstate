@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./PostPage.module.css";
 import ShowLocation from "../components/Showlocation";
+import EditDialog from "../components/EditDialog";
 function PostPage() {
   const { postId } = useParams();
   const [post, setPost] = useState(null);
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:4000/posts/${postId}`)
@@ -36,6 +38,11 @@ function PostPage() {
           <ShowLocation location={post.location} />
         </div>
       </div>
+      <EditDialog
+        isOpen={isEditDialogOpen}
+        onClose={() => setIsEditDialogOpen(false)}
+        postInfo={post}
+      />
     </div>
   );
 }
