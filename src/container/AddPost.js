@@ -8,8 +8,8 @@ const AddPost = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
   const [description, setDescription] = useState("");
-  const [location, setLocation] = useState(null);
   const { currentUser } = useContext(UserContext);
+  const { location } = useContext(LocationContext);
   const UserId = currentUser.id;
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,46 +31,42 @@ const AddPost = () => {
       .catch((error) => console.error(error));
   };
   return (
-    <LocationContext.Provider value={{ location, setLocation }}>
-      <div className={AddpostStyle.container}>
-        <LocationPicker />
-        <div
-          className={[styles.container, AddpostStyle.formContainer].join(" ")}
+    <div className={AddpostStyle.container}>
+      <LocationPicker />
+      <div className={[styles.container, AddpostStyle.formContainer].join(" ")}>
+        <form
+          dir="rtl"
+          onSubmit={handleSubmit}
+          className={[styles.form, AddpostStyle.form].join(" ")}
         >
-          <form
-            dir="rtl"
-            onSubmit={handleSubmit}
-            className={[styles.form, AddpostStyle.form].join(" ")}
-          >
-            <label>
-              شماره موبایل
-              <input
-                type="tel"
-                value={phoneNumber}
-                onChange={(event) => setPhoneNumber(event.target.value)}
-              />
-            </label>
-            <label>
-              آدرس
-              <input
-                type="text"
-                value={address}
-                onChange={(event) => setAddress(event.target.value)}
-              />
-            </label>
-            <label>
-              توضیح
-              <textarea
-                rows={8}
-                value={description}
-                onChange={(event) => setDescription(event.target.value)}
-              />
-            </label>
-            <button type="submit">ثبت آگهی</button>
-          </form>
-        </div>
+          <label>
+            شماره موبایل
+            <input
+              type="tel"
+              value={phoneNumber}
+              onChange={(event) => setPhoneNumber(event.target.value)}
+            />
+          </label>
+          <label>
+            آدرس
+            <input
+              type="text"
+              value={address}
+              onChange={(event) => setAddress(event.target.value)}
+            />
+          </label>
+          <label>
+            توضیح
+            <textarea
+              rows={8}
+              value={description}
+              onChange={(event) => setDescription(event.target.value)}
+            />
+          </label>
+          <button type="submit">ثبت آگهی</button>
+        </form>
       </div>
-    </LocationContext.Provider>
+    </div>
   );
 };
 export default AddPost;
