@@ -38,6 +38,7 @@ function PostPage() {
           <ShowLocation location={post.location} />
         </div>
       </div>
+      <button onClick={() => setIsEditDialogOpen(true)}>تغییر اطلاعات</button>
       <EditDialog
         isOpen={isEditDialogOpen}
         onClose={() => setIsEditDialogOpen(false)}
