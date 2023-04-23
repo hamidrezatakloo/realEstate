@@ -20,7 +20,7 @@ function PostPage() {
   return (
     <div className={styles.post}>
       <img src="/sampleImage.jpg" />
-      <div>
+      <div className={styles.wrapper}>
         <div className={styles.info}>
           <p>
             شماره تماس:<span>{post.phoneNumber}</span>
@@ -32,7 +32,7 @@ function PostPage() {
             توضیح:<span>{post.description}</span>
           </p>
         </div>
-        <div>
+        <div className={styles.location}>
           <ShowLocation location={post.location} />
         </div>
       </div>
