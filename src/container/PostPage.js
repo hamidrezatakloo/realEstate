@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "./PostPage.module.css";
 import ShowLocation from "../components/Showlocation";
 import EditDialog from "../components/EditDialog";
@@ -9,6 +9,7 @@ function PostPage() {
   const [post, setPost] = useState(null);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const { location } = useContext(LocationContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:4000/posts/${postId}`)
@@ -43,6 +44,20 @@ function PostPage() {
     setIsEditDialogOpen(false);
   }
 
+  function handleRemovePost() {
+    // Remove Post
+    fetch(`http://localhost:4000/posts/${postId}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        console.log("Deleted post with ID:", postId);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error deleting post:", error);
+      });
+  }
+
   return (
     <div className={styles.post}>
       <img src="/sampleImage.jpg" />
@@ -63,6 +78,7 @@ function PostPage() {
         </div>
       </div>
       <button onClick={() => setIsEditDialogOpen(true)}>تغییر اطلاعات</button>
+      <button onClick={handleRemovePost}>حذف پست</button>
       <EditDialog
         isOpen={isEditDialogOpen}
         onClose={() => setIsEditDialogOpen(false)}
