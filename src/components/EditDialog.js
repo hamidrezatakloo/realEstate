@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import LocationContext from "../contexts/LocationContext";
+import LocationPicker from "./LocationPicker";
 
 function EditDialog({ postInfo }) {
   const [editedPostInfo, setEditedPostInfo] = useState(postInfo);
-
+  const { setLocation } = useContext(LocationContext);
+  setLocation(editedPostInfo.location);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setEditedPostInfo((prevPostInfo) => ({
@@ -39,6 +42,7 @@ function EditDialog({ postInfo }) {
             value={editedPostInfo.description}
             onChange={handleInputChange}
           />
+          <LocationPicker />
           <button>تایید</button>
           <button>انصراف</button>
         </div>
