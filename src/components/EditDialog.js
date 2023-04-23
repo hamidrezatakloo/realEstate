@@ -18,7 +18,7 @@ function EditDialog({ postInfo, isOpen, onClose, onSubmit }) {
     >
       <div dir="rtl" className={styles.editDialogContent}>
         <h2>اطلاعات پست را اصلاح کنید</h2>
-        <label htmlFor="phone">شماره تماس</label>
+        <label htmlFor="phoneNumber">شماره تماس</label>
         <input
           type="tel"
           name="phone"
