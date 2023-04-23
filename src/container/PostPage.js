@@ -21,22 +21,14 @@ function PostPage() {
     return <div>Loading...</div>;
   }
 
-  function handleSubmit(newPostInfo, setEditedPostInfo) {
-    //if location is not null (selected a location by user)
-    if (location) {
-      setEditedPostInfo((prevPostInfo) => ({
-        ...prevPostInfo,
-        location: location,
-      }));
-    }
-
+  function handleSubmit(newPostInfo) {
     // Update Post information
     fetch(`http://localhost:4000/posts/${postId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newPostInfo),
+      body: JSON.stringify({ ...newPostInfo, location: location }),
     })
       .then((response) => response.json())
       .then((data) => {
