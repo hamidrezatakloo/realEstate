@@ -26,7 +26,7 @@ function EditDialog({ postInfo, isOpen, onClose, onSubmit }) {
         <label htmlFor="phoneNumber">شماره تماس</label>
         <input
           type="tel"
-          name="phone"
+          name="phoneNumber"
           id="phone"
           value={editedPostInfo.phoneNumber}
           onChange={handleInputChange}
