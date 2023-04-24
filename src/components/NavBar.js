@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../contexts/UserContext";
 import "./Navbar.module.css";
 function NavBar() {
   const { currentUser } = useContext(UserContext);
+  const location = useLocation();
   return (
     <nav>
       <ul>
@@ -12,10 +13,11 @@ function NavBar() {
         </li>
         {currentUser ? (
           <>
-            <li>
-              <Link to="/Addpost">ثبت آگهی</Link>
-            </li>
-
+            {location.pathname !== "/addpost" && (
+              <li>
+                <Link to="/addpost">ثبت آگهی</Link>
+              </li>
+            )}
             <li>
               خوش آمدید
               <span style={{ fontWeight: "bold", margin: "0 10px" }}>
