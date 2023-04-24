@@ -9,6 +9,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Home from "./container/Home";
 import PostPage from "./container/PostPage";
 import LocationContext from "./contexts/LocationContext";
+import NavBar from "./components/NavBar";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [location, setLocation] = useState(null);
@@ -17,20 +18,23 @@ function App() {
       <UserContext.Provider value={{ currentUser, setCurrentUser }}>
         <LocationContext.Provider value={{ location, setLocation }}>
           <div className={styles.container}>
-            <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/login" element={<Login />}></Route>
-              <Route path="/signup" element={<Signup />}></Route>
-              <Route
-                path="/addpost"
-                element={
-                  <PrivateRoute>
-                    <AddPost />
-                  </PrivateRoute>
-                }
-              ></Route>
-              <Route path="/posts/:postId" element={<PostPage />}></Route>
-            </Routes>
+            <NavBar />
+            <div className={styles.content}>
+              <Routes>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/login" element={<Login />}></Route>
+                <Route path="/signup" element={<Signup />}></Route>
+                <Route
+                  path="/addpost"
+                  element={
+                    <PrivateRoute>
+                      <AddPost />
+                    </PrivateRoute>
+                  }
+                ></Route>
+                <Route path="/posts/:postId" element={<PostPage />}></Route>
+              </Routes>
+            </div>
           </div>
         </LocationContext.Provider>
       </UserContext.Provider>
