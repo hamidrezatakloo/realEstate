@@ -4,12 +4,14 @@ import styles from "./form.module.css";
 import AddpostStyle from "./Addpost.module.css";
 import LocationContext from "../contexts/LocationContext";
 import UserContext from "../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 const AddPost = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
   const [description, setDescription] = useState("");
   const { currentUser } = useContext(UserContext);
   const { location } = useContext(LocationContext);
+  const navigate = useNavigate();
   const UserId = currentUser.id;
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -27,7 +29,10 @@ const AddPost = () => {
       }),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        navigate("/");
+      })
       .catch((error) => console.error(error));
   };
   return (
